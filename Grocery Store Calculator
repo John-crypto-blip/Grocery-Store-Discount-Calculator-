@@ -1,0 +1,42 @@
+/* John Renzel M. Fangon 
+/* CC2 1B
+
+import java.util.Scanner;
+
+public class GroceryStoreDiscountCalculator {
+
+    public static void main(String[] args) {
+        
+        // Create a scanner object to take input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the total purchase amount
+        System.out.print("Enter the total purchase amount: PHP ");
+        double totalAmount = scanner.nextDouble();
+
+        // Declare variables for discount and final price
+        double discount = 0.0;
+        double finalPrice = totalAmount;
+
+        // Apply discount based on the total purchase amount using if-else
+        if (totalAmount < 1000) {
+            discount = 0.0; // No discount
+        } else if (totalAmount >= 1000 && totalAmount <= 5000) {
+            discount = 5.0; // 5% discount
+        } else if (totalAmount >= 5001 && totalAmount <= 10000) {
+            discount = 10.0; // 10% discount
+        } else {
+            discount = 15.0; // 15% discount
+        }
+
+        // Calculate the final price after discount
+        finalPrice = totalAmount - (totalAmount * discount / 100);
+
+        // Display the discount and final price
+        System.out.println("Discount applied: " + (int)discount + "%");
+        System.out.println("Final price after discount: PHP " + String.format("%.2f", finalPrice));
+
+        // Close the scanner
+        scanner.close();
+    }
+}
